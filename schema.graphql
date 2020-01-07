@@ -1,0 +1,89 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+union _Entity = Todo
+
+type Mutation {
+  _createSnapshot(key: String!): Boolean!
+  createTodo(input: CreateTodoInput!): Todo!
+  deleteTodo(id: ID!): ID!
+  updateTodo(id: ID!, input: UpdateTodoInput!): Todo!
+}
+
+type Query {
+  _aggregation(field: String, ref: String, stat: String!, type: String): Float!
+  _entities(representations: [_Any!]!): [_Entity]!
+  _service: _Service!
+  _typeDefs: String!
+  todo(id: ID!): Todo
+  todos(dir: String, limit: Int, page: Int, ref: String, sort: String, where: TodosWhere): [Todo]
+}
+
+type Todo {
+  _boolean: Boolean!
+  _float(fixed: Int, max: Float, min: Float): Float!
+  _int(max: Int, min: Int): Int!
+  _nest: Todo!
+  _string(casing: String, full: Boolean, length: Int, locale: String, max: Int, min: Int, nationality: String, pool: String, sentences: Int, syllables: Int, template: String, type: String, words: Int): String!
+  done: Boolean!
+  id: ID!
+  task(length: Int): String!
+}
+
+type _Service {
+  sdl: String
+}
+
+enum MathOptions {
+  CEIL
+  FLOOR
+  ROUND
+}
+
+input CreateTodoInput {
+  done: Boolean!
+  task: String!
+}
+
+input TodosWhere {
+  and: [TodosWhere!]
+  done_eq: Boolean
+  done_exists: Boolean
+  id_eq: Float
+  id_ge: Float
+  id_gt: Float
+  id_in: [ID!]
+  id_le: Float
+  id_lt: Float
+  id_neq: Float
+  id_nin: [ID!]
+  like: String
+  not: [TodosWhere!]
+  or: [TodosWhere!]
+  search: String
+  task_contains: String
+  task_endswith: String
+  task_eq: String
+  task_exists: Boolean
+  task_in: [String!]
+  task_neq: String
+  task_nin: [String!]
+  task_startswith: String
+}
+
+input UpdateTodoInput {
+  done: Boolean
+  task: String
+}
+
+
+scalar _Any
+
+"The `DateTime` scalar represents a date and time following the ISO 8601 standard"
+scalar DateTime
+
+scalar _FieldSet

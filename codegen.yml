@@ -1,0 +1,18 @@
+overwrite: true
+schema: 'https://fakeql.com/graphql/854c987cc5f0a6a182882935756a1e27'
+documents: 'src/api/*.graphql'
+generates:
+  src/api/generated.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - add: '/* eslint:disable */'
+    config:
+      withHooks: true
+      withMutationFn: false
+      withComponent: false
+      apolloReactHooksImportFrom: '../../../src'
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
