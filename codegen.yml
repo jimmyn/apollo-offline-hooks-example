@@ -1,6 +1,6 @@
 overwrite: true
-schema: 'https://fakeql.com/graphql/854c987cc5f0a6a182882935756a1e27'
-documents: 'src/api/*.graphql'
+schema: 'https://fakeql.com/graphql/7e5b259f331cc978c76f25c5701f33e0'
+documents: 'src/api/*.ts'
 generates:
   src/api/generated.tsx:
     plugins:
@@ -12,7 +12,4 @@ generates:
       withHooks: true
       withMutationFn: false
       withComponent: false
-      apolloReactHooksImportFrom: '../../../src'
-  ./graphql.schema.json:
-    plugins:
-      - 'introspection'
+      apolloReactHooksImportFrom: 'apollo-offline-hooks'

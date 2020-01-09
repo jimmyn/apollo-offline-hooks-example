@@ -29,6 +29,7 @@ type Todo {
   _int(max: Int, min: Int): Int!
   _nest: Todo!
   _string(casing: String, full: Boolean, length: Int, locale: String, max: Int, min: Int, nationality: String, pool: String, sentences: Int, syllables: Int, template: String, type: String, words: Int): String!
+  createdAt(length: Int): String!
   done: Boolean!
   id: ID!
   task(length: Int): String!
@@ -45,12 +46,21 @@ enum MathOptions {
 }
 
 input CreateTodoInput {
+  createdAt: String!
   done: Boolean!
   task: String!
 }
 
 input TodosWhere {
   and: [TodosWhere!]
+  createdAt_contains: String
+  createdAt_endswith: String
+  createdAt_eq: String
+  createdAt_exists: Boolean
+  createdAt_in: [String!]
+  createdAt_neq: String
+  createdAt_nin: [String!]
+  createdAt_startswith: String
   done_eq: Boolean
   done_exists: Boolean
   id_eq: Float
@@ -76,6 +86,7 @@ input TodosWhere {
 }
 
 input UpdateTodoInput {
+  createdAt: String
   done: Boolean
   task: String
 }

@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "https://fakeql.com/graphql/854c987cc5f0a6a182882935756a1e27",
+        "url": "https://fakeql.com/graphql/7e5b259f331cc978c76f25c5701f33e0",
         "headers": {
           "user-agent": "JS GraphQL"
         },

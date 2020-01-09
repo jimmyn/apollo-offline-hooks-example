@@ -1,10 +1,18 @@
 import React from 'react';
-import {useTodosQueryQuery} from './api/generated';
+import ApolloClient from 'apollo-boost';
+import {ApolloProvider} from 'apollo-offline-hooks';
+import {Todos} from './Todos';
 
-type Props = {};
+const client = new ApolloClient({
+  uri: 'https://fakeql.com/graphql/7e5b259f331cc978c76f25c5701f33e0'
+});
 
-export const App: React.FC<Props> = () => {
-  const {data, loading} = useTodosQueryQuery();
-  console.log(data);
-  return <h1>App component</h1>;
+const App: React.FC = () => {
+  return (
+    <ApolloProvider client={client}>
+      <Todos />
+    </ApolloProvider>
+  );
 };
+
+export default App;
